@@ -1,0 +1,13 @@
+{
+  "timeZone": "Europe/Rome",
+  "dependencies": {
+    "enabledAdvancedServices": [
+      { "userSymbol": "Sheets", "version": "v4", "serviceId": "sheets" }
+    ]
+  },
+  "oauthScopes": [
+    "https://www.googleapis.com/auth/drive.file",
+    "https://www.googleapis.com/auth/script.send_mail"
+  ],
+  "runtimeVersion": "V8"
+}
