@@ -1,6 +1,6 @@
 const CAMPAIGN_SITE = 'https://22.bjbeyond.it/';
 const TAB = 'Iscrizioni';
-const HOUR = 3_600_000;
+const HOUR = 3600000;
 const CAPACITY = 22;
 const COLUMN = { email: 0, key: 1, lang: 2, token: 3, requested: 4, expiry: 5, verified: 6, slot: 7, delivered: 8 };
 const HEADER = ['Email', 'Chiave email', 'Lingua', 'Hash conferma', 'Richiesta (UTC ms)', 'Scadenza (UTC ms)', 'Conferma (UTC ms)', 'Posto', 'Consegna (UTC ms)'];
@@ -35,14 +35,14 @@ const TEXT = {
 };
 
 function doGet(event) {
-  const input = event?.parameter || {};
+  const input = (event && event.parameter) || {};
   const language = input.lang === 'en' ? 'en' : 'it';
   if (isToken_(input.k)) return page_(language, 'confirm', input.k);
   return page_(language, input.k ? 'expired' : 'retry');
 }
 
 function doPost(event) {
-  const input = event?.parameter || {};
+  const input = (event && event.parameter) || {};
   const language = input.lang === 'en' ? 'en' : 'it';
   try {
     const config = config_();
@@ -174,7 +174,7 @@ function cleanup_(sheet, rows, now) {
 function takeSendAllowance_(now) {
   const options = PropertiesService.getScriptProperties();
   const day = Math.floor(now / (24 * HOUR));
-  const minute = Math.floor(now / 60_000);
+  const minute = Math.floor(now / 60000);
   const [priorDay, priorDayCount, priorMinute, priorMinuteCount] =
     (options.getProperty('F22_RATE') || '').split(',').map(Number);
   const daily = priorDay === day ? priorDayCount : 0;
@@ -217,7 +217,7 @@ function digest_(token) {
 
 function locked_(callback) {
   const lock = LockService.getScriptLock();
-  lock.waitLock(12_000);
+  lock.waitLock(12000);
   try { return callback(); } finally { lock.releaseLock(); }
 }
 
