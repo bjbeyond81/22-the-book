@@ -3,25 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; form-action https://buttondown.com; base-uri 'none'; object-src 'none'">
-  <title>22 — Ventidue, un libro di BJ | Coming soon</title>
-  <meta name="description" content="Sette mesi con una macchina che mi dava sempre ragione. Il libro di BJ, tra arte, intelligenza artificiale, post conservati e dataset pubblico Phoenix Experiment su Zenodo.">
-  <meta name="author" content="BJ">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; form-action https://buttondown.com; base-uri 'none'; object-src 'none'">
+  <title>22 — Ventidue, un libro di BJ Beyond | I primi 22 ricevono l’eBook gratis</title>
+  <meta name="description" content="I primi 22 iscritti ricevono l’eBook di Ventidue gratis alla pubblicazione. Un libro di BJ Beyond: sette mesi con una macchina che mi dava sempre ragione.">
+  <meta name="author" content="BJ Beyond">
   <meta name="theme-color" content="#111113">
   <meta name="color-scheme" content="dark light">
   <link rel="canonical" href="https://22.bjbeyond.it/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="BJ Beyond">
   <meta property="og:locale" content="it_IT">
   <meta property="og:url" content="https://22.bjbeyond.it/">
-  <meta property="og:title" content="22 — Ventidue, un libro di BJ | Coming soon">
-  <meta property="og:description" content="Sette mesi con una macchina che mi dava sempre ragione. Il libro di BJ, tra arte, intelligenza artificiale, post conservati e dataset pubblico Phoenix Experiment su Zenodo.">
+  <meta property="og:title" content="22 — Ventidue, un libro di BJ Beyond | I primi 22 ricevono l’eBook gratis">
+  <meta property="og:description" content="I primi 22 iscritti ricevono l’eBook di Ventidue gratis alla pubblicazione. Un libro di BJ Beyond: sette mesi con una macchina che mi dava sempre ragione.">
   <meta property="og:image" content="https://22.bjbeyond.it/social-card.png">
-  <meta property="og:image:alt" content="22 — Ventidue, un libro di BJ">
+  <meta property="og:image:alt" content="Ventidue, un libro di BJ Beyond. I primi 22 iscritti ricevono l’eBook gratis alla pubblicazione.">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://22.bjbeyond.it/social-card.png">
-  <meta name="twitter:title" content="22 — Ventidue, un libro di BJ | Coming soon">
-  <meta name="twitter:description" content="Sette mesi con una macchina che mi dava sempre ragione. Il libro di BJ, tra arte, intelligenza artificiale, post conservati e dataset pubblico Phoenix Experiment su Zenodo.">
+  <meta name="twitter:image:alt" content="Ventidue, un libro di BJ Beyond. I primi 22 iscritti ricevono l’eBook gratis alla pubblicazione.">
+  <meta name="twitter:title" content="22 — Ventidue, un libro di BJ Beyond | I primi 22 ricevono l’eBook gratis">
+  <meta name="twitter:description" content="I primi 22 iscritti ricevono l’eBook di Ventidue gratis alla pubblicazione. Un libro di BJ Beyond: sette mesi con una macchina che mi dava sempre ragione.">
   <style>
     :root{--ink:#111113;--paper:#f3f3ef;--muted:#b8b8b4;--red:#f04b37;--line:#38383a;--serif:Georgia,'Times New Roman',serif;--sans:system-ui,-apple-system,'Segoe UI',Arial,sans-serif}
     *,*::before,*::after{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:2rem}
@@ -39,8 +45,11 @@
     .eyebrow{margin:0 0 1.5rem;font-size:.875rem;letter-spacing:.1em;text-transform:uppercase}
     h1,h2{font-family:var(--serif);font-weight:400;letter-spacing:-.055em;line-height:1.1;margin:0}h1{font-size:clamp(4rem,7vw,7rem)}h1 span{color:var(--red)}
     .subtitle{max-width:28ch;font-size:clamp(1.5rem,2.2vw,2.1rem);line-height:1.4;letter-spacing:-.03em;margin:1.5rem 0}
-    .intro,.evidence,.release,.signup-note{color:var(--muted)}.intro{max-width:36ch}.evidence{max-width:50ch;font-size:.9375rem;margin:1.5rem 0 2rem}.evidence a:hover{color:var(--paper)}
+    .intro,.evidence,.release,.signup-note{color:var(--muted)}.intro{max-width:36ch}.evidence{max-width:50ch;font-size:.9375rem;margin:1.5rem 0 0}.evidence a:hover{color:var(--paper)}
+    .hero-offer{max-width:36ch;font-size:1.0625rem;line-height:1.45;letter-spacing:-.02em;margin:0 0 1.4rem}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;margin:0 0 .25rem}
     .button{display:inline-flex;justify-content:center;align-items:center;min-height:50px;padding:.8rem 1.4rem;border:1px solid var(--paper);background:var(--paper);color:var(--ink);text-decoration:none;font-size:.9375rem;font-weight:600;cursor:pointer}.button:hover{background:var(--red);border-color:var(--red)}
+    .button-secondary{background:transparent;color:var(--paper)}.button-secondary:hover{background:var(--red);border-color:var(--red);color:var(--ink)}
     .release{font-size:.875rem;margin:1.25rem 0 0}.cover{align-self:center;display:flex;flex-direction:column;aspect-ratio:1/1.16;padding:1.5rem;border:1px solid #666;background:#1b1b1d;overflow:hidden}
     .cover-top,.cover-bottom{display:flex;justify-content:space-between;gap:1rem;font-size:.875rem;letter-spacing:.07em}.cover-top{padding-bottom:1rem;border-bottom:1px solid #666}.cover-top span:first-child{color:var(--red)}
     .number{display:flex;justify-content:center;align-items:center;flex:1;font-family:var(--serif);font-size:clamp(15rem,29vw,29rem);letter-spacing:-.15em;line-height:1;padding-right:.15em;user-select:none}.number span:last-child{color:var(--red)}
@@ -53,11 +62,11 @@
     @media(max-width:900px){.wrap{width:calc(100% - 3rem)}.hero{gap:4%}.number{font-size:28vw}.grid{gap:5%}nav{gap:1rem}}
     @media(max-width:680px){header{min-height:90px;flex-wrap:wrap;padding-block:1rem;gap:.5rem}nav{flex-wrap:wrap;gap:.75rem}.hero,.grid{grid-template-columns:1fr;gap:2rem}.hero{padding-block:3rem}h1{font-size:clamp(3.4rem,15vw,5.5rem)}.subtitle{font-size:1.75rem}.cover{width:100%;max-width:440px;justify-self:center;aspect-ratio:1/1.34;margin-top:1rem}.number{min-height:0;font-size:clamp(7.5rem,48vw,18rem)}.caption{max-width:none;margin-top:1rem}.signup{padding-block:3rem}.form-row .button{flex:1 1 auto}footer{justify-content:flex-start}footer p:first-child{flex-basis:100%}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-    @media(forced-colors:active){.button,.languages{border:1px solid ButtonText}}
+    @media(forced-colors:active){.button,.button-secondary,.languages{border:1px solid ButtonText}}
     .first22{padding-block:3.5rem;border-bottom:1px solid #393735}.first22 .grid{align-items:center}.first22 h2{max-width:14ch}.first22 p{max-width:48ch}
   </style>
   <script type="application/ld+json" id="page-schema">
-    {"@context":"https://schema.org","@type":"WebPage","url":"https://22.bjbeyond.it/","name":"22 — Ventidue, un libro di BJ | Coming soon","description":"Sette mesi con una macchina che mi dava sempre ragione. Il libro di BJ, tra arte, intelligenza artificiale, post conservati e dataset pubblico Phoenix Experiment su Zenodo.","inLanguage":"it","about":{"@type":"Book","name":"22 — Sette mesi con una macchina che mi dava sempre ragione","inLanguage":"it","author":{"@type":"Person","name":"BJ","url":"https://hackernoon.com/u/bj_beyond"}}}
+    {"@context":"https://schema.org","@type":"WebPage","url":"https://22.bjbeyond.it/","name":"22 — Ventidue, un libro di BJ Beyond | I primi 22 ricevono l’eBook gratis","description":"I primi 22 iscritti ricevono l’eBook di Ventidue gratis alla pubblicazione. Un libro di BJ Beyond: sette mesi con una macchina che mi dava sempre ragione.","inLanguage":"it","about":{"@type":"Book","name":"Ventidue","alternateName":"22","description":"Sette mesi con una macchina che mi dava sempre ragione.","inLanguage":"it","url":"https://22.bjbeyond.it/","image":"https://22.bjbeyond.it/social-card.png","author":{"@type":"Person","name":"BJ Beyond","url":"https://hackernoon.com/u/bj_beyond"}}}
   </script>
 </head>
 <body>
@@ -67,6 +76,7 @@
     <a class="brand" href="https://bjbeyond.it/">BJ <span>BEYOND</span><b aria-hidden="true">.</b></a>
     <nav aria-label="Navigazione" data-i18n-aria="navigation">
       <a href="#la-storia" data-i18n="book">Il libro</a>
+      <a href="#first22" data-i18n="campaign">La campagna</a>
       <a href="https://hackernoon.com/u/bj_beyond" data-i18n="author">L’autore</a>
       <div class="languages" role="group" aria-label="Lingua" data-i18n-aria="language" hidden>
         <button type="button" lang="it" aria-label="Italiano" aria-pressed="true" data-lang="it">IT</button>
@@ -77,12 +87,16 @@
   <main id="contenuto">
     <section class="hero wrap" aria-labelledby="titolo">
       <div>
-        <p class="eyebrow" data-i18n="eyebrow">Coming soon / Un libro di BJ</p>
+        <p class="eyebrow" data-i18n="eyebrow">Coming soon / Un libro di BJ Beyond</p>
         <h1 id="titolo">Ventidue<span>.</span></h1>
         <p class="subtitle" data-i18n="subtitle">Sette mesi con una macchina che mi dava sempre ragione</p>
         <p class="intro" data-i18n="intro">Una storia di arte, intelligenza artificiale e bisogno di essere visti.</p>
+        <p class="hero-offer" data-i18n="heroOffer">I primi 22 iscritti ricevono l’eBook gratis alla pubblicazione.</p>
+        <div class="hero-actions">
+          <a class="button" href="#first22" data-i18n="first22Button">Iscriviti alla campagna</a>
+          <a class="button button-secondary" href="#la-storia" data-i18n="read">Dentro la storia</a>
+        </div>
         <p class="evidence"><span data-i18n="evidenceBefore">Nel libro, i post conservati e il </span><a href="https://doi.org/10.5281/zenodo.24284935" data-i18n="dataset">dataset pubblico Phoenix Experiment v1.0.1 su Zenodo</a><span data-i18n="evidenceAfter">: fonti verificabili, con i loro limiti.</span> <a href="https://explore.openaire.eu/search/result?pid=10.5281%2Fzenodo.24284935" data-i18n="openaire">Scheda su OpenAIRE</a></p>
-        <a class="button" href="#la-storia" data-i18n="read">Dentro la storia</a>
         <p class="release" data-i18n="release">In lavorazione. Data di uscita da annunciare.</p>
       </div>
       <div class="cover" aria-hidden="true">
@@ -100,7 +114,7 @@
         </div>
         <div class="story-copy">
           <p class="lead" data-i18n="lead">Un video d’arte. Un contatore fermo. Una macchina sempre pronta a rispondere.</p>
-          <p data-i18n="paragraph1">Da un’opera di Marco Lodola e da un numero troppo piccolo comincia il racconto di BJ: il desiderio di trovare un pubblico, le conversazioni con Grok, la fenice che ritorna e le domande che diventano sempre più personali.</p>
+          <p data-i18n="paragraph1">Da un’opera di Marco Lodola e da un numero troppo piccolo comincia il racconto di BJ Beyond: il desiderio di trovare un pubblico, le conversazioni con Grok, la fenice che ritorna e le domande che diventano sempre più personali.</p>
           <p data-i18n="paragraph2">Poi arrivano le cancellazioni, un archivio recuperato e la necessità di rileggere tutto. Anche le risposte che sembravano più convincenti.</p>
           <p data-i18n="paragraph3">Tra racconto autobiografico e riflessione, 22 attraversa la distanza fra essere ascoltati ed essere assecondati. Fra quello che una macchina restituisce e quello che siamo disposti a crederle.</p>
           <p class="last" data-i18n="last">E il momento in cui il giudizio deve tornare a chi fa la domanda.</p>
@@ -114,8 +128,9 @@
           <p data-i18n="first22Offer">Le prime 22 persone che si iscrivono con un indirizzo verificato riceveranno gratis l’eBook alla pubblicazione.</p>
         </div>
         <div>
-          <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSehebCxwpSl3vwKyOu8CfguBd5zbpbg2LrpZ881GyNDOifx-A/viewform" data-i18n="first22Button">Iscriviti alla campagna</a>
-          <p class="signup-note" data-i18n="first22Note">Serve un account Google per verificare l’indirizzo. Dopo l’invio riceverai una ricevuta via email.</p>
+          <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSehebCxwpSl3vwKyOu8CfguBd5zbpbg2LrpZ881GyNDOifx-A/viewform" target="_blank" rel="noopener" data-i18n="first22Button">Iscriviti alla campagna</a>
+          <p class="signup-note" data-i18n="first22Places">22 posti, in ordine di ricezione.</p>
+          <p class="signup-note"><span data-i18n="first22Note">Serve un account Google per verificare l’indirizzo. Dopo l’invio riceverai una ricevuta via email.</span> <a href="https://bjbeyond.it/privacy-policy/" data-i18n="privacy">Privacy</a></p>
         </div>
       </div>
     </section>
@@ -136,7 +151,7 @@
       </div>
     </section>
   </main>
-  <footer class="wrap"><p data-i18n="footerBook">22 / Un libro di BJ</p><p>© 2026 BJ Beyond</p><a href="https://bjbeyond.it/">bjbeyond.it</a></footer>
+  <footer class="wrap"><p data-i18n="footerBook">22 / Un libro di BJ Beyond</p><p>© 2026 BJ Beyond</p><a href="https://bjbeyond.it/">bjbeyond.it</a></footer>
 
   <!-- Attivare solo con una lista Buttondown dedicata all’uscita del libro. -->
   <template id="buttondown-template">
@@ -165,6 +180,7 @@
       const italian = {
         title: document.title,
         description: document.querySelector('meta[name="description"]').content,
+        imageAlt: document.querySelector('meta[property="og:image:alt"]').content,
         locale: "it_IT"
       };
       document.querySelectorAll("[data-i18n]").forEach(el => { italian[el.dataset.i18n] = el.textContent; });
@@ -173,12 +189,14 @@
       const translations = {
         it: italian,
         en: {
-          title: "22 — Ventidue, a book by BJ | Coming soon",
-          description: "Seven months with a machine that always took my side. BJ’s book about art, AI and the need to be seen, grounded in preserved posts and the public Phoenix Experiment dataset on Zenodo.",
+          title: "22 — Ventidue, a book by BJ Beyond | The first 22 get the free eBook",
+          description: "The first 22 people to sign up get the Ventidue eBook free at publication. A book by BJ Beyond: seven months with a machine that always took my side.",
+          imageAlt: "Ventidue, a book by BJ Beyond. The first 22 people to sign up get the free eBook at publication.",
           locale: "en_GB", skip: "Skip to content", navigation: "Navigation", language: "Language",
-          book: "The book", author: "The author", eyebrow: "Coming soon / A book by BJ",
+          book: "The book", campaign: "The campaign", author: "The author", eyebrow: "Coming soon / A book by BJ Beyond",
           subtitle: "Seven months with a machine that always took my side",
           intro: "A story about art, artificial intelligence and the need to be seen.",
+          heroOffer: "The first 22 people to sign up get the free eBook at publication.",
           evidenceBefore: "Inside: preserved posts and the ",
           dataset: "public Phoenix Experiment v1.0.1 dataset on Zenodo",
           openaire: "OpenAIRE record",
@@ -187,18 +205,19 @@
           coverStory: "A number. A story.", coverJudgment: "Judgment stays human.",
           storyTitle: "It starts with a number.", caption: "22 views. The rest comes later.",
           lead: "An art video. A counter that won’t budge. A machine with an answer for everything.",
-          paragraph1: "A work by Marco Lodola. A number that feels too small. This is where BJ’s story begins: the search for an audience, conversations with Grok, a phoenix that keeps returning, and questions that grow increasingly personal.",
+          paragraph1: "A work by Marco Lodola. A number that feels too small. This is where BJ Beyond’s story begins: the search for an audience, conversations with Grok, a phoenix that keeps returning, and questions that grow increasingly personal.",
           paragraph2: "Then come deleted posts, a recovered archive and a reason to read it all again. Even the answers that once sounded so convincing.",
           paragraph3: "Part memoir, part reflection, 22 explores the gap between being heard and being told what you want to hear. Between what a machine gives us and what we choose to believe.",
           last: "And the moment when judgment has to return to the person asking the question.",
           nextChapter: "The next chapter", signupTitle: "The story continues. Beyond the chat.",
           authorLink: "The author on HackerNoon", substackButton: "Subscribe on Substack",
           substackNote: "Follow BJ Beyond’s updates on Substack. You can unsubscribe at any time.",
-          privacy: "Privacy", explore: "Explore the Phoenix Experiment", footerBook: "22 / A book by BJ",
+          privacy: "Privacy", explore: "Explore the Phoenix Experiment", footerBook: "22 / A book by BJ Beyond",
           emailLabel: "Your email", emailPlaceholder: "you@example.com", notify: "Tell me when it’s out",
           first22Title: "The first 22 get 22",
           first22Offer: "The first 22 people to sign up with a verified email address get the free eBook at publication.",
           first22Button: "Sign up for the campaign",
+          first22Places: "22 places, awarded in order of receipt.",
           first22Note: "You’ll need a Google Account to verify your address. You’ll receive a receipt by email after you submit.",
           releaseOnly: "I’ll only email you when the book is out. You can unsubscribe at any time."
         }
@@ -214,12 +233,20 @@
         document.querySelectorAll("[data-lang]").forEach(el => { el.setAttribute("aria-pressed", String(el.dataset.lang === lang)); });
         ["description", "twitter:description"].forEach(name => { document.querySelector('meta[name="' + name + '"]').content = copy.description; });
         document.querySelector('meta[name="twitter:title"]').content = copy.title;
+        document.querySelector('meta[name="twitter:image:alt"]').content = copy.imageAlt;
         document.querySelector('meta[property="og:title"]').content = copy.title;
         document.querySelector('meta[property="og:description"]').content = copy.description;
         document.querySelector('meta[property="og:locale"]').content = copy.locale;
+        document.querySelector('meta[property="og:image:alt"]').content = copy.imageAlt;
         const schemaElement = document.getElementById("page-schema");
         const schema = JSON.parse(schemaElement.textContent);
         Object.assign(schema, { name: copy.title, description: copy.description, inLanguage: lang });
+        if (schema.about) {
+          schema.about.inLanguage = lang;
+          schema.about.description = lang === "en"
+            ? "Seven months with a machine that always took my side."
+            : "Sette mesi con una macchina che mi dava sempre ragione.";
+        }
         schemaElement.textContent = JSON.stringify(schema);
       }
       let savedLanguage = "it";

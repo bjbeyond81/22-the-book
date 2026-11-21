@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://22.bjbeyond.it/sitemap.xml
