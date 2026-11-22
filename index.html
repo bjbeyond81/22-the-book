@@ -10,6 +10,9 @@
   <meta name="theme-color" content="#111113">
   <meta name="color-scheme" content="dark light">
   <link rel="canonical" href="https://22.bjbeyond.it/">
+  <link rel="alternate" hreflang="it" href="https://22.bjbeyond.it/">
+  <link rel="alternate" hreflang="en" href="https://22.bjbeyond.it/en/">
+  <link rel="alternate" hreflang="x-default" href="https://22.bjbeyond.it/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon.ico" sizes="48x48">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -34,13 +37,13 @@
     body{margin:0;background:var(--ink);color:var(--paper);font:1rem/1.65 var(--sans)}
     [hidden]{display:none!important}::selection{background:var(--red);color:var(--ink)}
     a{color:inherit;text-underline-offset:.25em}button,input{font:inherit}
-    a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--red);outline-offset:5px}
+    a:focus-visible,button:focus-visible,.languages a:focus-visible,input:focus-visible{outline:3px solid var(--red);outline-offset:5px}
     .wrap{width:min(100% - 6rem,1280px);margin-inline:auto}.top-line{height:5px;background:var(--red)}
     .skip{position:fixed;left:1rem;top:1rem;z-index:10;transform:translateY(-200%);padding:.75rem 1rem;background:var(--paper);color:var(--ink)}.skip:focus{transform:none}
     header{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;min-height:100px;border-bottom:1px solid var(--line)}
     .brand{font-weight:750;letter-spacing:-.04em;text-decoration:none;white-space:nowrap}.brand span{font-weight:400;letter-spacing:.1em;margin-left:.4rem;font-size:.875rem}.brand b{color:var(--red)}
     nav,.languages{display:flex;align-items:center;gap:1.5rem}nav a{display:inline-flex;align-items:center;min-height:44px;font-size:.875rem;text-decoration:none}
-    .languages{gap:0;border:1px solid #666}.languages button{min-width:44px;min-height:44px;border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:.875rem}.languages button[aria-pressed="true"]{background:var(--paper);color:var(--ink)}
+    .languages{gap:0;border:1px solid #666}.languages a{min-width:44px;min-height:44px;border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:.875rem}.languages a[aria-current="page"]{background:var(--paper);color:var(--ink)}
     .hero{display:grid;grid-template-columns:1.1fr 1fr;gap:5%;padding-block:clamp(3rem,6vw,6rem)}
     .eyebrow{margin:0 0 1.5rem;font-size:.875rem;letter-spacing:.1em;text-transform:uppercase}
     h1,h2{font-family:var(--serif);font-weight:400;letter-spacing:-.055em;line-height:1.1;margin:0}h1{font-size:clamp(4rem,7vw,7rem)}h1 span{color:var(--red)}
@@ -78,10 +81,7 @@
       <a href="#la-storia" data-i18n="book">Il libro</a>
       <a href="#first22" data-i18n="campaign">La campagna</a>
       <a href="https://hackernoon.com/u/bj_beyond" data-i18n="author">L’autore</a>
-      <div class="languages" role="group" aria-label="Lingua" data-i18n-aria="language" hidden>
-        <button type="button" lang="it" aria-label="Italiano" aria-pressed="true" data-lang="it">IT</button>
-        <button type="button" lang="en" aria-label="English" aria-pressed="false" data-lang="en">EN</button>
-      </div>
+      <div class="languages" role="group" aria-label="Lingua"><a href="/" lang="it" aria-current="page">IT</a><a href="/en/" lang="en" >EN</a></div>
     </nav>
   </header>
   <main id="contenuto">
@@ -165,101 +165,5 @@
       <p class="signup-note"><span data-i18n="releaseOnly">Ti scrivo solo quando il libro esce. Puoi disiscriverti quando vuoi.</span> <a href="https://bjbeyond.it/privacy-policy/" data-i18n="privacy">Privacy</a></p>
     </form>
   </template>
-  <script>
-    (() => {
-      "use strict";
-      // Lascia vuoto per usare Substack. Nessuna chiave API è necessaria.
-      const BUTTONDOWN_USERNAME = "";
-      const STORAGE_KEY = "ventidue-language";
-      if (BUTTONDOWN_USERNAME.trim()) {
-        const form = document.getElementById("buttondown-template").content.firstElementChild.cloneNode(true);
-        form.action = "https://buttondown.com/api/emails/embed-subscribe/" + encodeURIComponent(BUTTONDOWN_USERNAME.trim());
-        document.getElementById("subscription").replaceChildren(form);
-      }
-      // Il testo HTML è la versione italiana, leggibile anche senza JavaScript.
-      const italian = {
-        title: document.title,
-        description: document.querySelector('meta[name="description"]').content,
-        imageAlt: document.querySelector('meta[property="og:image:alt"]').content,
-        locale: "it_IT"
-      };
-      document.querySelectorAll("[data-i18n]").forEach(el => { italian[el.dataset.i18n] = el.textContent; });
-      document.querySelectorAll("[data-i18n-aria]").forEach(el => { italian[el.dataset.i18nAria] = el.getAttribute("aria-label"); });
-      document.querySelectorAll("[data-i18n-placeholder]").forEach(el => { italian[el.dataset.i18nPlaceholder] = el.placeholder; });
-      const translations = {
-        it: italian,
-        en: {
-          title: "22 — Ventidue, a book by BJ Beyond | The first 22 get the free eBook",
-          description: "The first 22 people to sign up get the Ventidue eBook free at publication. A book by BJ Beyond: seven months with a machine that always took my side.",
-          imageAlt: "Ventidue, a book by BJ Beyond. The first 22 people to sign up get the free eBook at publication.",
-          locale: "en_GB", skip: "Skip to content", navigation: "Navigation", language: "Language",
-          book: "The book", campaign: "The campaign", author: "The author", eyebrow: "Coming soon / A book by BJ Beyond",
-          subtitle: "Seven months with a machine that always took my side",
-          intro: "A story about art, artificial intelligence and the need to be seen.",
-          heroOffer: "The first 22 people to sign up get the free eBook at publication.",
-          evidenceBefore: "Inside: preserved posts and the ",
-          dataset: "public Phoenix Experiment v1.0.1 dataset on Zenodo",
-          openaire: "OpenAIRE record",
-          evidenceAfter: ". Sources you can examine, with their limits in view.",
-          read: "Inside the story", release: "Work in progress. Publication date to be announced.",
-          coverStory: "A number. A story.", coverJudgment: "Judgment stays human.",
-          storyTitle: "It starts with a number.", caption: "22 views. The rest comes later.",
-          lead: "An art video. A counter that won’t budge. A machine with an answer for everything.",
-          paragraph1: "A work by Marco Lodola. A number that feels too small. This is where BJ Beyond’s story begins: the search for an audience, conversations with Grok, a phoenix that keeps returning, and questions that grow increasingly personal.",
-          paragraph2: "Then come deleted posts, a recovered archive and a reason to read it all again. Even the answers that once sounded so convincing.",
-          paragraph3: "Part memoir, part reflection, 22 explores the gap between being heard and being told what you want to hear. Between what a machine gives us and what we choose to believe.",
-          last: "And the moment when judgment has to return to the person asking the question.",
-          nextChapter: "The next chapter", signupTitle: "The story continues. Beyond the chat.",
-          authorLink: "The author on HackerNoon", substackButton: "Subscribe on Substack",
-          substackNote: "Follow BJ Beyond’s updates on Substack. You can unsubscribe at any time.",
-          privacy: "Privacy", explore: "Explore the Phoenix Experiment", footerBook: "22 / A book by BJ Beyond",
-          emailLabel: "Your email", emailPlaceholder: "you@example.com", notify: "Tell me when it’s out",
-          first22Title: "The first 22 get 22",
-          first22Offer: "The first 22 people to sign up with a verified email address get the free eBook at publication.",
-          first22Button: "Sign up for the campaign",
-          first22Places: "22 places, awarded in order of receipt.",
-          first22Note: "You’ll need a Google Account to verify your address. You’ll receive a receipt by email after you submit.",
-          releaseOnly: "I’ll only email you when the book is out. You can unsubscribe at any time."
-        }
-      };
-      function setLanguage(language) {
-        const lang = language === "en" ? "en" : "it";
-        const copy = translations[lang];
-        document.documentElement.lang = lang;
-        document.title = copy.title;
-        document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = copy[el.dataset.i18n]; });
-        document.querySelectorAll("[data-i18n-aria]").forEach(el => { el.setAttribute("aria-label", copy[el.dataset.i18nAria]); });
-        document.querySelectorAll("[data-i18n-placeholder]").forEach(el => { el.placeholder = copy[el.dataset.i18nPlaceholder]; });
-        document.querySelectorAll("[data-lang]").forEach(el => { el.setAttribute("aria-pressed", String(el.dataset.lang === lang)); });
-        ["description", "twitter:description"].forEach(name => { document.querySelector('meta[name="' + name + '"]').content = copy.description; });
-        document.querySelector('meta[name="twitter:title"]').content = copy.title;
-        document.querySelector('meta[name="twitter:image:alt"]').content = copy.imageAlt;
-        document.querySelector('meta[property="og:title"]').content = copy.title;
-        document.querySelector('meta[property="og:description"]').content = copy.description;
-        document.querySelector('meta[property="og:locale"]').content = copy.locale;
-        document.querySelector('meta[property="og:image:alt"]').content = copy.imageAlt;
-        const schemaElement = document.getElementById("page-schema");
-        const schema = JSON.parse(schemaElement.textContent);
-        Object.assign(schema, { name: copy.title, description: copy.description, inLanguage: lang });
-        if (schema.about) {
-          schema.about.inLanguage = lang;
-          schema.about.description = lang === "en"
-            ? "Seven months with a machine that always took my side."
-            : "Sette mesi con una macchina che mi dava sempre ragione.";
-        }
-        schemaElement.textContent = JSON.stringify(schema);
-      }
-      let savedLanguage = "it";
-      try { savedLanguage = localStorage.getItem(STORAGE_KEY) === "en" ? "en" : "it"; } catch {}
-      setLanguage(savedLanguage);
-      document.querySelectorAll("[data-lang]").forEach(button => {
-        button.addEventListener("click", () => {
-          setLanguage(button.dataset.lang);
-          try { localStorage.setItem(STORAGE_KEY, button.dataset.lang); } catch {}
-        });
-      });
-      document.querySelector(".languages").hidden = false;
-    })();
-  </script>
 </body>
 </html>
